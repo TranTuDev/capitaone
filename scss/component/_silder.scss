@@ -1,0 +1,995 @@
+@use "../abstracts/index" as *;
+
+/* ========== home-2 ========== */
+
+// .swiper-slide-active {
+//     // .box-content {
+//     //     opacity: 1;
+//     //     transform: translateY(0) scale(1);
+
+//     //     b {
+//     //         transition-delay: 1.2s;
+//     //     }
+
+//     //     h1 {
+//     //         transition-delay: 1.4s;
+//     //     }
+
+//     //     p {
+//     //         transition-delay: 1.6s;
+//     //     }
+
+//     //     .tf-btn-1 {
+//     //         transition-delay: 1.8s;
+//     //     }
+
+//     //     b,
+//     //     h1,
+//     //     p,
+//     //     .tf-btn-1 {
+//     //         opacity: 1;
+//     //         transform: translateY(0);
+//     //     }
+//     // }
+// }
+
+.sw-dot-default {
+    display: flex;
+    gap: 0px !important;
+
+    .swiper-pagination-bullet {
+        width: 26px;
+        height: 26px;
+        @include flex(center, center);
+        @include transition3;
+        background-color: transparent;
+        border: 1px solid transparent;
+        position: relative;
+        opacity: 1;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background-color: var(--black);
+            @include transition3;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        border-color: var(--black);
+
+        &::before {
+            background-color: var(--black);
+        }
+    }
+
+
+
+}
+
+
+/* ========== portfolio ========== */
+
+.sw-dot-default {
+    display: flex;
+    gap: 0px !important;
+
+
+    .swiper-pagination-bullet {
+        width: 26px;
+        height: 26px;
+        @include flex(center, center);
+        @include transition3;
+        background-color: transparent;
+        border: 1px solid transparent;
+        position: relative;
+        opacity: 1;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background-color: var(--black);
+            @include transition3;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        border-color: var(--black);
+
+        &::before {
+            background-color: var(--black);
+        }
+    }
+
+    &.style-1 {
+        .swiper-pagination-bullet {
+            &:before {
+                background-color: var(--main-color);
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+
+            border-color: var(--main-color);
+
+            &::before {
+                background-color: var(--main-color);
+            }
+        }
+    }
+}
+
+
+/* ========== home ========== */
+
+
+// ============================================================
+// SLIDER SHOW — wrapper section
+// ============================================================
+.tf-slider-show {
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh;
+}
+
+.slider-home-right,
+.slider-home-right .swiper-wrapper,
+.slider-home-right .swiper-slide {
+    min-height: 90vh;
+}
+
+.slider-default {
+    margin-top: -105px;
+    position: relative;
+
+    .slider-wrap {
+        position: relative;
+        min-height: 90vh;
+        width: 100%;
+    }
+
+}
+
+// ============================================================
+// SLIDER WRAP
+// ============================================================
+.slider-default {
+    .slider-wrap {
+        position: relative;
+        min-height: 90vh;
+        width: 100%;
+
+        .image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: center;
+
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+// ============================================================
+// CONTENT SLIDER
+// ============================================================
+// .slider-default .content-slider {
+
+
+//     background-color: var(--white-2);
+//     padding: 60px 62px 60px 60px;
+//     clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 69%, 72% 100%, 20% 100%, 0 100%, 0 0);
+//     width: fit-content;
+
+
+
+//     .intro-text {
+//         color: var(--main-color);
+//         padding-bottom: 15px;
+
+//     }
+
+//     h2 {
+//         margin-bottom: 20px;
+//         color: var(--text-color-1);
+//     }
+
+//     .description-text {
+//         margin-bottom: 50px;
+//         color: var(--text-color-1);
+
+//     }
+// }
+
+// ============================================================
+// ANIMATION — dùng đúng pattern fade-item của mentor
+// ============================================================
+// .slider-effect-fade {
+//     .swiper-slide {
+//         .fade-item {
+//             transform: translateY(30px);
+//             opacity: 0;
+//             visibility: hidden;
+//             transition:
+//                 transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+//                 opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+//                 visibility 0.6s;
+
+//             &.fade-item-1 {
+//                 transition-delay: 0.1s;
+//             }
+
+//             &.fade-item-2 {
+//                 transition-delay: 0.25s;
+//             }
+
+//             &.fade-item-3 {
+//                 transition-delay: 0.4s;
+//             }
+
+//             &.fade-item-4 {
+//                 transition-delay: 0.55s;
+//             }
+//         }
+
+//         &.swiper-slide-active {
+//             .fade-item {
+//                 transform: translateY(0);
+//                 opacity: 1;
+//                 visibility: visible;
+//             }
+//         }
+//     }
+// }
+
+// ============================================================
+// PAGINATION
+// ============================================================
+.tf-slider-show .wrap-pagination {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+// ============================================================
+// RESPONSIVE
+// ============================================================
+
+
+@media (max-width: 1199px) {
+
+    .tf-slider-show,
+    .slider-home-right,
+    .slider-home-right .swiper-wrapper,
+    .slider-home-right .swiper-slide,
+    .slider-default .slider-wrap {
+        min-height: 80vh;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .tf-slider-show,
+    .slider-home-right,
+    .slider-home-right .swiper-wrapper,
+    .slider-home-right .swiper-slide,
+    .slider-default .slider-wrap {
+        min-height: 70vh;
+    }
+}
+
+// .slider-home-right,
+// .slider-home-right .swiper,
+// .slider-home-right .swiper-wrapper,
+// .slider-home-right .swiper-slide {
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .slider-home-left {
+//     width: 100px;
+//     background: var(--text-color-1);
+//     padding: 50px 35px;
+//     display: flex;
+//     align-items: center;
+
+//     height: auto;
+//     writing-mode: sideways-lr;
+//     position: relative;
+//     background: var(--text-color-1);
+//     z-index: 0;
+
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         inset: 0 0 auto 0;
+//         height: 46%;
+//         background: var(--main-color);
+//         clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+//         z-index: 1;
+//     }
+
+//     @media (max-width: 1199px) {
+//         display: none;
+//     }
+// }
+
+// .slider-home-right {
+//     flex: 1;
+//     height: 100%;
+
+//     .slider-wrap {
+//         height: 100%;
+//         width: 100%;
+//         position: relative;
+
+
+//         .image {
+//             height: 100%;
+//             width: 100%;
+//             overflow: hidden;
+//             display: flex;
+
+//             img {
+
+//                 height: 100%;
+//                 object-fit: cover;
+//             }
+//         }
+
+//         .over-play {
+//             position: absolute;
+//             inset: 0;
+
+//         }
+
+
+//         .box-content {
+//             position: absolute;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             left: 0;
+//             right: 0;
+
+//             z-index: 10;
+//         }
+
+//         .over-play {
+//             position: absolute;
+//             inset: 0;
+//             background: var(--line-24);
+//         }
+
+
+//     }
+// }
+
+
+
+// .slider-wrap {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+
+
+//     .slider-bg {
+//         position: absolute;
+//         inset: 0;
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         display: block;
+//         z-index: 0;
+//     }
+
+//     .over-play {
+//         position: absolute;
+//         inset: 0;
+//         z-index: 1;
+//     }
+
+
+//     .box-content {
+//         position: absolute;
+//         inset: 0;
+//         z-index: 2;
+//         display: flex;
+//         align-items: center;
+//     }
+
+//     .content-slider {
+//         background-color: var(--white-2);
+//         padding: 60px 62px 60px 60px;
+//         clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 69%, 72% 100%, 20% 100%, 0 100%, 0 0);
+//         width: fit-content;
+
+//         .intro-text {
+//             color: var(--main-color);
+//             font-family: $font-5;
+//             padding-bottom: 15px;
+//         }
+
+//         h2 {
+//             margin-bottom: 20px;
+//         }
+
+//         .description-text {
+//             margin-bottom: 50px;
+//             font-family: $font-2;
+//         }
+//     }
+// }
+
+// .slider-wrap.style-2 {
+//     position: relative;
+//     height: 100%;
+//     width: 100%;
+
+//     .image {
+//         height: 100%;
+//         width: 100%;
+//         overflow: hidden;
+
+//         img {
+
+//             height: 100%;
+//             object-fit: cover;
+
+//         }
+//     }
+
+//     .over-play {
+//         position: absolute;
+//         inset: 0;
+//         background: var(--line-21);
+//     }
+
+//     .box-content {
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         left: 0;
+//         right: 0;
+//         // max-width: 1170px;
+
+//         z-index: 10;
+
+//         .intro-text {
+//             color: var(--main-color);
+//             font-family: $font-5;
+//             padding-bottom: 15px;
+//         }
+
+//         h1 {
+//             font-family: $font-6;
+//             margin-bottom: 20px;
+//         }
+
+//         h1,
+//         .description-text {
+//             color: var(--white-2);
+//         }
+
+//         .description-text {
+//             margin-bottom: 50px;
+//             font-family: $font-2;
+//         }
+//     }
+
+//     .content-slider {
+//         &.style-2 {
+//             background-color: transparent !important;
+//             padding: 0px;
+//             clip-path: none !important;
+
+//         }
+
+//     }
+
+
+// }
+
+
+
+// .slider-wrap.style-4 {
+//     position: relative;
+//     height: 100%;
+//     width: 100%;
+
+//     .image {
+//         height: 100%;
+//         width: 100%;
+//         overflow: hidden;
+//         display: flex;
+
+//         img {
+
+//             height: 100%;
+//             object-fit: cover;
+
+//         }
+//     }
+
+//     .over-play {
+//         position: absolute;
+//         inset: 0;
+//         background: var(--line-25);
+//     }
+
+//     .box-content {
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-37%) !important;
+//         left: 0;
+//         right: 0;
+
+
+//         z-index: 10;
+
+//         .intro-text {
+//             color: var(--main-color);
+//             font-family: $font-5;
+//             padding-bottom: 15px;
+//         }
+
+//         h1 {
+//             font-family: $font-6;
+//             margin-bottom: 20px;
+//         }
+
+//         h1,
+//         .description-text {
+//             color: var(--white-2);
+//         }
+
+//         .description-text {
+//             margin-bottom: 50px;
+//             font-family: $font-2;
+//         }
+//     }
+
+//     .content-slider {
+//         &.style-2 {
+//             background-color: transparent !important;
+//             padding: 0px;
+//             clip-path: none !important;
+
+//         }
+
+//     }
+
+
+// }
+
+
+
+
+
+
+
+// Desktop với sidebar (≥1200px)
+// @media (min-width: 1200px) {
+//     .slider-wrap.style-2 {
+//         .box-content {
+//             margin-left: calc((100vw - 1170px) / 2 - 115px);
+//             margin-right: auto;
+//             padding-left: 15px;
+//             padding-right: 15px;
+//         }
+//     }
+// }
+
+// Animation cho slider
+// .slider-wrap {
+//     .box-content {
+//         opacity: 0;
+//         transform: translateY(30px) scale(0.95);
+//         transition: all 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+
+//         b,
+//         h1,
+//         p,
+//         .tf-btn-1 {
+//             opacity: 0;
+//             transform: translateY(20px) scale(0.95);
+//             transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+//         }
+
+//         b {
+//             transition-delay: 0.1s;
+//         }
+
+//         h1 {
+//             transition-delay: 0.25s;
+//         }
+
+//         p {
+//             transition-delay: 0.4s;
+//         }
+
+//         .tf-btn-1 {
+//             transition-delay: 0.55s;
+//         }
+//     }
+// }
+
+// Active slide animation
+// .swiper-slide-active {
+//     .slider-wrap .box-content {
+//         opacity: 1;
+//         transform: translateY(-50%) scale(1);
+
+//         b,
+//         h1,
+//         p,
+//         .tf-btn-1 {
+//             opacity: 1;
+//             transform: translateY(0) scale(1);
+//         }
+//     }
+// }
+
+/* ============================================================
+   RESPONSIVE - FIX CHIỀU CAO THEO BREAKPOINT
+   ============================================================ */
+
+// // XL: < 1200px - Ẩn sidebar, reset margin
+// @media (max-width: 1199px) {
+//     .slider-home-left {
+//         display: none;
+//     }
+
+//     .tf-slider-show {
+//         min-height: 75vh !important;
+
+//     }
+
+//     .slider-wrap.style-2 {
+//         .box-content {
+//             margin-left: auto;
+//             margin-right: auto;
+//             padding: 0 15px;
+//         }
+//     }
+
+// }
+
+// // LG: < 992px
+// @media (max-width: 991px) {
+//     .tf-slider-show {
+//         min-height: 50vh !important;
+
+//     }
+
+//     .slider-wrap {
+//         .image {
+//             height: 70vh !important;
+
+
+//             img {
+//                 height: 70vh !important;
+//             }
+
+//             .over-play {
+//                 height: 70vh !important;
+//             }
+//         }
+//     }
+
+//     .box-content {
+//         .content-slider {
+//             padding: 30px !important;
+//         }
+//     }
+// }
+
+
+// @media (max-width: 767px) {
+//     .slider-wrap {
+//         .image {
+//             height: 50vh !important;
+
+
+//             img {
+//                 height: 50vh !important;
+//             }
+
+//             .over-play {
+//                 height: 50vh !important;
+//             }
+//         }
+
+//         &.style-2 {
+//             .box-content {
+//                 h1 br {
+//                     display: none;
+//                 }
+
+//                 p br {
+//                     display: none;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// // SM: < 576px
+// @media (max-width: 575px) {
+
+//     .tf-slider-show {
+//         min-height: 40vh !important;
+
+//     }
+
+//     .slider-wrap {
+//         height: 40vh !important;
+
+//         p {
+//             display: none !important;
+//         }
+
+//         h1 {
+//             margin-bottom: 20px !important;
+//         }
+
+//         .image {
+//             height: 40vh !important;
+
+
+//             img {
+//                 height: 40vh !important;
+//             }
+
+//             .over-play {
+//                 height: 40vh !important;
+//             }
+//         }
+
+//     }
+// }
+
+
+
+// .slider-wrap {
+//     position: relative;
+//     overflow: hidden;
+// }
+
+// .slider-images {
+//     position: absolute;
+//     right: 0;
+//     bottom: 0;
+//     width: 50%;
+//     height: 100%;
+//     pointer-events: none;
+// }
+
+// .slider-images img {
+//     position: absolute;
+//     transform: translateX(100px);
+//     transition: all 0.8s ease;
+// }
+
+// .slider-images .img-car {
+//     right: 0;
+//     bottom: 0;
+//     z-index: 2;
+// }
+
+// .slider-images .img-driver {
+//     right: 120px;
+//     bottom: 80px;
+//     z-index: 1;
+// }
+
+// .course-slider {
+//     padding-top: 120px;
+
+//     h3 {
+//         display: flex;
+//         justify-content: center;
+//         margin-bottom: 30px;
+//     }
+// }
+
+// ============================================================
+// SLIDER
+// ============================================================
+
+// .tf-slider-show {
+//     width: 100%;
+//     height: calc(100dvh - 150px);
+//     min-height: 500px;
+//     overflow: hidden;
+// }
+
+// // Swiper + các tầng con đều chiếm full height
+// .slider-home-right,
+// .slider-home-right .swiper,
+// .slider-home-right .swiper-wrapper,
+// .slider-home-right .swiper-slide {
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .slider-wrap {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+
+//     // Ảnh nền — fill toàn bộ wrap
+//     .slider-bg {
+//         position: absolute;
+//         inset: 0;
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         display: block;
+//         z-index: 0;
+//     }
+
+//     // Overlay tối
+//     .over-play {
+//         position: absolute;
+//         inset: 0;
+//         background: var(--line-24);
+//         z-index: 1;
+//     }
+
+//     // Content căn giữa dọc bằng flex
+//     .box-content {
+//         position: absolute;
+//         inset: 0;
+//         z-index: 2;
+//         display: flex;
+//         align-items: center;
+//     }
+// }
+
+// // Content box (home 1 — có background trắng + clip-path)
+// .content-slider {
+//     background-color: var(--white-2);
+//     padding: 60px 62px 60px 60px;
+//     clip-path: polygon(20% 0%, 100% 0, 100% 20%, 100% 69%, 72% 100%, 20% 100%, 0 100%, 0 0);
+//     width: fit-content;
+//     max-width: 600px;
+
+//     .intro-text {
+//         color: var(--main-color);
+//         font-family: $font-5;
+//         padding-bottom: 15px;
+//         margin: 0;
+//     }
+
+//     h2 {
+//         margin-bottom: 20px;
+//     }
+
+//     .description-text {
+//         margin-bottom: 40px;
+//         font-family: $font-2;
+//     }
+// }
+
+// // ============================================================
+// // ANIMATION — chỉ fade + translateY trên children
+// // ============================================================
+
+// // Trạng thái ban đầu (tất cả slide)
+// .slider-wrap .box-content {
+
+//     .intro-text,
+//     h2,
+//     .description-text,
+//     .tf-btn-slider {
+//         opacity: 0;
+//         transform: translateY(28px);
+//         transition:
+//             opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+//             transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+//     }
+
+//     .intro-text {
+//         transition-delay: 0.05s;
+//     }
+
+//     h2 {
+//         transition-delay: 0.2s;
+//     }
+
+//     .description-text {
+//         transition-delay: 0.35s;
+//     }
+
+//     .tf-btn-slider {
+//         transition-delay: 0.5s;
+//     }
+// }
+
+// // Khi slide active — animate vào
+// .swiper-slide-active .slider-wrap .box-content {
+
+//     .intro-text,
+//     h2,
+//     .description-text,
+//     .tf-btn-slider {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+// }
+
+// // ============================================================
+// // RESPONSIVE
+// // ============================================================
+
+// @media (max-width: 1199px) {
+//     .tf-slider-show {
+//         height: 75dvh;
+//         min-height: 420px;
+//     }
+// }
+
+// @media (max-width: 991px) {
+//     .tf-slider-show {
+//         height: 60dvh;
+//         min-height: 360px;
+//     }
+
+//     .content-slider {
+//         padding: 36px 30px;
+//         clip-path: none; // polygon bị méo ở tablet
+//         max-width: 100%;
+//     }
+// }
+
+// @media (max-width: 767px) {
+//     .tf-slider-show {
+//         height: 55dvh;
+//         min-height: 300px;
+//     }
+
+//     .content-slider {
+//         padding: 28px 20px;
+
+//         h2 br {
+//             display: none;
+//         }
+
+//         .description-text br {
+//             display: none;
+//         }
+//     }
+// }
+
+// @media (max-width: 575px) {
+//     .tf-slider-show {
+//         height: 50dvh;
+//         min-height: 260px;
+//     }
+
+//     .content-slider {
+//         .description-text {
+//             display: none;
+//         }
+
+//         h2 {
+//             margin-bottom: 16px;
+//         }
+//     }
+// }

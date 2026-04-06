@@ -1,0 +1,394 @@
+// @use "../abstracts/index" as *;
+
+// .footer {
+//     position: relative;
+
+//     .image {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+
+//         .image-overlay {
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             height: 100%;
+//             background: linear-gradient(180deg, #141C21 43.75%, rgba(20, 28, 33, 0.92) 100%);
+//         }
+
+//         img {
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//             display: block;
+//         }
+//     }
+
+//     .footer-top {
+//         padding-top: 90px;
+//         padding-bottom: 100px;
+//         display: flex;
+//         justify-content: space-between;
+//         gap: 30px;
+//         border-bottom: 1px solid var(--line-1);
+
+//         &.style-1 {
+//             padding-top: 150px !important;
+//         }
+//     }
+
+//     .footer-left {
+//         max-width: 288px;
+
+//         .logo-footer {
+//             margin-bottom: 20px;
+//         }
+
+//         .text {
+//             color: var(--text-color-4);
+//             margin-bottom: 30px;
+//             font-family: $font-2;
+//         }
+//     }
+
+// }
+
+// .footer-content {
+
+//     .title-mobile {
+//         display: flex;
+//         align-items: center;
+//         gap: 25px;
+
+//         h5 {
+//             color: var(--white-2);
+//         }
+
+//         i {
+//             font-size: 7px;
+//             color: var(--white-2);
+//             @include transition3();
+//         }
+//     }
+
+//     ul {
+//         margin-top: 25px;
+//     }
+
+//     li {
+//         margin-bottom: 18px;
+//         display: flex;
+//         align-items: center;
+//         gap: 9px;
+
+//         span {
+//             width: 5px;
+//             height: 5px;
+
+//             border-radius: 50%;
+//             background-color: var(--text-color-2);
+//             transition: all 0.3s ease-in-out;
+//             display: block;
+
+//         }
+
+//         a {
+//             color: var(--text-color-4);
+//             position: relative;
+//             font-family: $font-2;
+
+//             &:hover {
+//                 color: var(--main-color);
+
+//                 &::before {
+//                     background-color: var(--main-color);
+//                 }
+//             }
+//         }
+
+//         &:last-child {
+//             margin-bottom: 0;
+//         }
+
+
+//     }
+
+//     &.open {
+//         .title-mobile {
+//             i {
+//                 transform: rotate(180deg);
+//             }
+//         }
+//     }
+// }
+
+// .footer-right {
+
+//     max-width: 320px;
+
+//     .footer-heading {
+//         color: var(--white-2);
+//         margin-bottom: 40px;
+
+//         &.style-1 {
+//             margin-bottom: 0px !important;
+//         }
+//     }
+
+//     .box-icon-footer {
+//         margin-top: 40px;
+//     }
+
+//     .footer-list {
+//         padding-top: 30px;
+//         margin-bottom: 20px;
+//     }
+// }
+
+
+
+// .box-icon-footer {
+//     display: flex;
+//     gap: 20px;
+
+//     .icon {
+//         width: 50px;
+//         height: 50px;
+//         border-radius: 50%;
+//         border: 1px solid var(--text-color-2);
+//         @include flex(center, center);
+
+//         i {
+//             color: var(--white-2);
+//             font-size: 20px;
+//         }
+//     }
+
+//     .title {
+//         color: var(--white-2);
+//         margin-bottom: 5px;
+
+//         &:hover {
+//             color: var(--main-color);
+//         }
+//     }
+
+//     .sub-title {
+//         color: var(--text-color-4);
+//     }
+
+//     .content-box {
+//         max-width: calc(100% - 70px);
+//     }
+// }
+
+// .footer-bottom {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding-top: 45px;
+//     padding-bottom: 45px;
+//     flex-wrap: wrap;
+//     text-align: center;
+//     gap: 30px;
+
+//     ul {
+//         display: flex;
+//         gap: 22px;
+//         align-items: center;
+//         flex-wrap: wrap;
+//         text-align: center;
+//     }
+
+//     li {
+//         a {
+//             border-right: 1px solid var(--text-color-4);
+//             padding-right: 28px;
+//             color: var(--text-color-4);
+//         }
+
+//         &:last-child {
+//             a {
+//                 border-right: unset;
+//                 padding-right: 0;
+//             }
+//         }
+//     }
+
+//     .right {
+//         p {
+//             color: var(--line-27);
+//         }
+//     }
+
+//     &.style-1 {
+//         li {
+//             a {
+
+//                 padding-right: 0px;
+
+//             }
+//         }
+//     }
+// }
+
+// .subscribe-footer {
+//     background-color: var(--main-color);
+
+//     clip-path: polygon(0 0, 80% 0, 77% 100%, 0% 100%);
+
+//     .subscribe {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding-top: 73px;
+//         padding-bottom: 80px;
+//         padding-right: 150px;
+//     }
+
+//     .subscribe-title {
+//         h3 {
+//             margin-bottom: 15px;
+//         }
+
+//         p {
+//             color: var(--text-color-);
+//         }
+//     }
+
+//     .subscribe-form {
+//         display: flex;
+
+//         .form-footer {
+//             padding: 35px 42px;
+//             border: none;
+//             background: var(--white-2);
+//         }
+
+//     }
+// }
+
+// .wg-contact {
+//     ul {
+//         margin-top: 18px;
+//     }
+
+//     .contact-item-footer {
+//         display: flex;
+//         align-items: center;
+//         gap: 15px;
+//         margin-bottom: 20px;
+
+//         .box-icon {
+//             flex-shrink: 0;
+//             color: var(--main-color);
+//             background-color: var(--line-1);
+//             height: 40px;
+//             width: 40px;
+//             font-size: 20px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             border-radius: 50%;
+//             transition: all 0.3s ease-in-out;
+//             cursor: pointer;
+//         }
+
+//         a {
+//             color: var(--text-color-4);
+//             font-family: $font-2;
+//             transition: all 0.3s ease-in-out;
+
+//             &:hover {
+//                 transition: all 0.3s ease-in-out;
+//                 color: var(--main-color);
+//             }
+//         }
+
+//         &:last-child {
+//             margin-bottom: 0px;
+//         }
+//     }
+// }
+
+// .footer-list {
+//     display: flex;
+//     align-items: center;
+//     gap: 20px;
+
+//     .img {
+//         position: relative;
+//         display: block;
+
+//         img {
+//             width: 100%;
+//             height: auto;
+//             object-fit: cover;
+//             display: block;
+//         }
+//     }
+
+//     .over-play {
+//         position: absolute;
+//         inset: 0;
+//         opacity: 0;
+//         background-color: rgba(5, 10, 18, 0.68);
+//         transition: opacity 0.3s ease;
+//     }
+
+//     .post-title {
+//         color: var(--white-2);
+//         margin-bottom: 5px;
+
+//         &:hover {
+//             color: var(--main-color);
+//         }
+//     }
+
+//     .date-post {
+//         display: flex;
+//         align-items: center;
+//         gap: 10px;
+
+//         i {
+//             color: var(--main-color);
+//         }
+
+//         a {
+//             color: var(--text-color-5);
+
+//             &:hover {
+//                 color: var(--main-color);
+//             }
+//         }
+//     }
+
+//     &:last-child {
+//         padding-top: 0px;
+//         margin-bottom: 0px;
+//     }
+
+//     .img:hover {
+//         .over-play {
+//             opacity: 1;
+//         }
+//     }
+// }
+
+// .footer-section {
+//     .subscribe-footer {
+//         margin-bottom: -60px;
+//         position: relative;
+//         z-index: 2;
+//     }
+
+//     .footer {
+//         &.style-1 {
+//             position: relative;
+//             z-index: 1;
+//         }
+//     }
+// }

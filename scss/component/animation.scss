@@ -1,0 +1,100 @@
+@use "../abstracts/index" as *;
+
+[data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
+}
+
+[data-animate].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+[data-animate="fade-left"] {
+    transform: translateX(-60px);
+}
+
+[data-animate="fade-right"] {
+    transform: translateX(60px);
+}
+
+[data-animate="fade-up"] {
+    transform: translateY(60px);
+}
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    overflow: hidden;
+    background: transparent;
+}
+
+.panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #111;
+    z-index: 5;
+}
+
+.panel-left {
+    left: 0;
+    transform: translateX(0%);
+}
+
+.panel-right {
+    right: 0;
+    transform: translateX(0%);
+}
+
+.transition-logo {
+    font-size: 72px;
+
+    font-weight: 900;
+
+    letter-spacing: 12px;
+
+    color: #fff;
+    z-index: 10;
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5),
+        0 0 16px rgba(255, 255, 255, 0.3);
+}
+
+.transition-logo span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(60px) scale(0.8) rotateZ(-10deg);
+    filter: blur(8px);
+}
+
+.heading-section .section-title .word,
+.section-title .word {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    vertical-align: top !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    word-spacing: normal !important;
+}
+
+.heading-section .section-title .char,
+.section-title .char {
+    display: inline-block !important;
+    line-height: 1 !important;
+    vertical-align: baseline !important;
+    will-change: transform, opacity;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: normal !important;
+}

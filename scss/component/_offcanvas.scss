@@ -1,0 +1,104 @@
+// @use "../abstracts/index" as *;
+
+// .canvas-mb {
+//     width: 100% !important;
+//     max-width: min(90%, 320px);
+//     border-right: 0 !important;
+//     font-family: $font-main;
+
+//     .mb-canvas-content {
+//         height: 100%;
+//     }
+
+//     .mb-body {
+//         padding: 16px;
+
+//         overscroll-behavior-y: contain;
+//         overflow-y: auto;
+
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         height: 100%;
+//     }
+// }
+
+// .mb-other-content {
+//     .group-icon {
+//         margin-top: 10px;
+//         display: flex;
+//         flex-wrap: wrap;
+//         gap: 10px;
+//         justify-content: center;
+//         margin-bottom: 20px;
+
+//         a {
+//             display: flex;
+//             align-items: center;
+//             gap: 10px;
+//             padding: 0 10px;
+//             line-height: 40px;
+//             gap: 6px;
+//             background-color: var(--natural-1);
+//             color: var(--dark);
+//             border-radius: 3px;
+//             display: inline-flex;
+//             align-items: center;
+//             justify-content: center;
+//             color: var(--text-color-1);
+//             font-weight: bold;
+
+//             i {
+//                 font-weight: bold;
+//             }
+
+//         }
+//     }
+
+//     .mb-contact {
+//         p {
+//             color: var(--text-color-2);
+//         }
+
+//         margin-bottom: 12px;
+//     }
+
+//     .text-need {
+//         font-weight: bold;
+//         color: var(--text-color-1);
+//         margin-bottom: 12px;
+//     }
+
+//     .mb-info {
+//         color: var(--text-color-2);
+//     }
+// }
+
+// .tf-sidebar {
+//     margin-right: 70px;
+
+//     &.style-1 {
+//         margin-right: 0px !important;
+//         margin-left: 70px;
+//     }
+// }
+
+// .wg-course-details {
+//     margin-left: -38px;
+// }
+
+// .wg-service-details {
+//     margin-left: -38px;
+// }
+
+// .wg-blog-details {
+//     margin-right: -75px;
+// }
+
+// .list-blog {
+//     margin-right: -75px;
+// }
+
+// #sidebarOffcanvas {
+//     width: 350px;
+// }

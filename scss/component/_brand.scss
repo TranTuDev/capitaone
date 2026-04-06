@@ -1,0 +1,56 @@
+@use "../abstracts/index" as *;
+
+.infiniteslide_wrap {
+    overflow: hidden;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line-17);
+    padding-bottom: 80px;
+
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+
+    .infiniteslide {
+        display: flex;
+        gap: 158px;
+        animation: scrollBrand 25s linear infinite;
+        width: max-content;
+    }
+
+    &.style-1 {
+        border-bottom: none;
+        padding-bottom: 0px;
+
+        .infiniteslide {
+            gap: 126px;
+            padding-top: 80px;
+            border-top: 1px solid var(--line-28);
+        }
+
+    }
+
+    &.style-2 {
+        -webkit-mask-image: none;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 0% 0%;
+        mask-image: none;
+        mask-repeat: no-repeat;
+        mask-size: 0% 0%;
+        background-color: var(--text-color-1);
+        padding-top: 80px !important;
+        padding-bottom: 75px !important;
+    }
+}
+
+@keyframes scrollBrand {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
