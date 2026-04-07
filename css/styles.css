@@ -14,13 +14,12 @@
 /*---------- Abstracts variable ----------- */
 @import url(../../css/bootstrap-select.min.css);
 :root {
-  --main-color: #FEE100;
+  --main-color: #F3F3F3;
   --primary-1: #598216;
   --primary-2: #F6C206;
   --text-color-1: #382C25;
   --text-color-2: #FFFFFF;
   --text-color-3: #CDB9A4;
-  --text-color-4: #E8E8E6;
   --dark-5: #171717;
   --dark-6: #1F1E17;
   --dark-7: #333334;
@@ -173,7 +172,7 @@ html {
 
 body {
   font-family: "Reddit Sans", sans-serif;
-  background-color: var(--white);
+  background-color: var(--main-color);
   font-style: normal;
 }
 
@@ -442,8 +441,8 @@ h3 {
 }
 
 h4 {
-  font-size: 24px;
-  line-height: 34px;
+  font-size: 18px;
+  line-height: 32px;
   font-weight: 600;
 }
 
@@ -509,7 +508,7 @@ h6.size-1 {
 }
 
 .text-paragraph {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 26px;
 }
 
@@ -1247,13 +1246,13 @@ a:focus, a:hover {
  * RTL
  ------------------------------------------------------------ */
 /*---------- Abstracts variable ----------- */
-.header-default {
+.header {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1030;
 }
 
-.header-inner {
+.header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1261,92 +1260,114 @@ a:focus, a:hover {
   padding-bottom: 20px;
 }
 
-@media (max-width: 1600px) {
-  .header-right.style-1 {
-    padding-right: 5px !important;
-  }
-  .header-line {
-    display: none !important;
-  }
-}
-@media (max-width: 1200px) {
-  .header-inner {
-    gap: 20px;
-  }
-  .header-inner.style-1 {
-    justify-content: space-between;
-    gap: 0;
-  }
-  .header-inner .header-right {
-    gap: 20px;
-    padding-right: 0 !important;
-  }
-  .box-nav-menu {
+@media (max-width: 1199px) {
+  .header__nav {
     display: none;
     gap: 0;
     padding-right: 0;
   }
-  .header-line {
-    display: none !important;
+  .header__inner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .header__logo {
+    display: flex;
+    justify-content: start;
+  }
+  .header__mobile {
+    display: flex;
+    justify-content: end;
   }
 }
-.mobile-button.style-1 span {
-  background-color: var(--white-1);
-}
-
-.logo-header a {
+.header__logo .header__logo-link {
   display: flex;
   align-items: center;
   gap: 10px;
   display: flex;
   text-decoration: none;
 }
-.logo-header img {
-  width: 100%;
+.header__logo img {
+  max-width: 100%;
   height: auto;
-  object-fit: cover;
+  transform: scale(1);
+  vertical-align: middle;
 }
 
-.box-nav-menu {
+.header__menu {
   gap: 24px;
 }
 
-.tf-topbar {
-  background-color: var(--text-color-1);
-  padding: 9px 0px;
+.header__language {
+  width: auto !important;
+  display: inline-block !important;
 }
-.tf-topbar .topbar-wraper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.header__menu-item {
+  position: relative;
 }
-.tf-topbar .topbar-wraper .topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 35px;
+.header__menu-item .header__menu-link {
+  position: relative;
+  display: inline-block;
 }
-.tf-topbar .topbar-wraper .topbar-left.style-1 {
-  gap: 30px;
+.header__menu-item .header__menu-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 4px;
+  background-color: var(--white-2);
+  transition: width 0.3s ease;
 }
-.tf-topbar .topbar-wraper .topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-.tf-topbar .topbar-content {
-  display: flex;
-  align-items: center;
-}
-.tf-topbar .topbar-content i {
-  color: var(--main-color);
-  padding-right: 10px;
-  font-size: 18px;
-}
-.tf-topbar .topbar-content a {
+.header__menu-item .header__menu-link span {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
   color: var(--white-2);
 }
-.tf-topbar .topbar-content a:hover {
-  color: var(--main-color);
+.header__menu-item a {
+  text-decoration: none;
+  color: inherit;
+}
+.header__menu-item:hover .header__menu-link::before {
+  width: 100%;
+}
+
+.header__menu-item .header__menu-link.style-1 {
+  line-height: 105px !important;
+  color: var(--white-1);
+}
+
+.header__mobile-button {
+  display: block;
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+}
+.header__mobile-button span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--white-2);
+}
+.header__mobile-button span:nth-child(1) {
+  top: 0;
+}
+.header__mobile-button span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__mobile-button span:nth-child(3) {
+  bottom: 0;
+}
+
+.icon-line {
+  width: 1px;
+  background-color: var(--white-2);
+  height: 20px;
+  opacity: 10%;
 }
 
 .wg-social {
@@ -1421,130 +1442,6 @@ a:focus, a:hover {
 }
 .wg-social.style-3 ul {
   gap: 23px !important;
-}
-
-.tf-languages {
-  padding: 3px 20px 3px 20px !important;
-}
-
-.menu-item {
-  position: relative;
-}
-.menu-item .item-link {
-  position: relative;
-  display: inline-block;
-}
-.menu-item .item-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 4px;
-  background-color: var(--white-2);
-  transition: width 0.3s ease;
-}
-.menu-item .item-link span {
-  position: relative;
-  z-index: 2;
-  font-weight: 700;
-  color: var(--white-2);
-}
-.menu-item a {
-  text-decoration: none;
-  color: inherit;
-}
-.menu-item:hover .item-link::before {
-  width: 100%;
-}
-
-.menu-item .item-link.style-1 {
-  line-height: 105px !important;
-  color: var(--white-1);
-}
-
-.icon-line {
-  width: 1px;
-  background-color: var(--white-2);
-  height: 20px;
-  opacity: 10%;
-}
-
-.sub-menu {
-  position: absolute;
-  top: 100%;
-  left: -10px;
-  width: 200px;
-  height: auto;
-  background: var(--white-2);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.25s ease;
-  pointer-events: none;
-  z-index: 2000;
-  overflow: hidden;
-}
-.sub-menu.style-1 {
-  top: 100% !important;
-}
-.sub-menu .menu-list a {
-  padding: 10px;
-  width: 100%;
-  text-transform: uppercase;
-}
-.sub-menu .menu-list a:hover {
-  background-color: var(--main-color);
-}
-
-.menu-heading {
-  font-weight: bold;
-  font-size: 18px;
-  padding-right: 27px;
-}
-
-.nav-icon .nav-item-icon {
-  color: var(--text-color-1);
-}
-.nav-icon .nav-item-icon:hover {
-  color: var(--main-color);
-}
-.nav-icon .nav-item-icon.style-1 {
-  color: var(--white-2);
-}
-.nav-icon .nav-item-icon.style-1:hover {
-  color: var(--main-color);
-}
-.nav-icon .nav-search i {
-  font-size: 20px;
-}
-.nav-icon .nav-megamenu i {
-  font-size: 40px;
-}
-
-.mobile-button {
-  display: block;
-  width: 24px;
-  height: 18px;
-  position: relative;
-  cursor: pointer;
-}
-.mobile-button span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-color-1);
-}
-.mobile-button span:nth-child(1) {
-  top: 0;
-}
-.mobile-button span:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.mobile-button span:nth-child(3) {
-  bottom: 0;
 }
 
 .mobile-nav-wrap {
@@ -1686,35 +1583,31 @@ a:focus, a:hover {
   display: none !important;
 }
 
-.languages::before {
+.header__language-current {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+.header__language-current::before {
   content: "\e928";
   font-family: "icomoon";
   position: absolute;
-  right: 20px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 6px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   color: var(--white-2);
 }
-.languages::after {
-  display: none;
-}
-.languages > span {
+.header__language-current > span {
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
-  padding-right: 40px;
-}
-.languages .list li {
-  color: var(--main-dark);
+  padding-right: 15px;
 }
 
-.nice-select.open .languages::before {
+.header__language.open .header__language-current::before {
   transform: translateY(-50%) rotate(180deg);
 }
 
@@ -2099,8 +1992,127 @@ a:focus, a:hover {
    ============================================================ */
 /*------------ pop-up ---------------- */
 /*------------ footer ---------------- */
+/* ---------------------------------------------------------
+ * Name: 
+ * Version: 1.0.0
+ * Author: Themesflat
+ * Author URI: http://themesflat.com
+ *
+ * Abstracts variable
+ * Reset css styles
+ * Components
+ * Responsive
+ * RTL
+ ------------------------------------------------------------ */
+/*---------- Abstracts variable ----------- */
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+}
+.footer__bottom ul {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.footer__store {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+}
+.footer__top {
+  padding-top: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--text-color-3);
+}
+
+.footer__links-item {
+  margin-bottom: 4px;
+}
+.footer__links-item a {
+  border-right: 2px solid var(--text-color-1);
+  padding-right: 12px;
+}
+.footer__links-item:last-child a {
+  border-right: none;
+  padding-right: 0;
+}
+
+.footer__socials-item a i {
+  font-size: 24px;
+}
+
+@media (max-width: 575px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: normal;
+  }
+  .footer__store {
+    justify-content: normal;
+  }
+}
 /*------------ hover ---------------- */
 /*------------ accordion ---------------- */
+.footer__accordion .accordion-item {
+  border: none;
+  background: transparent;
+}
+.footer__accordion .accordion-button {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+.footer__accordion .accordion-button:not(.collapsed) {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+.footer__accordion .accordion-body {
+  padding: 0;
+}
+.footer__accordion .accordion-collapse {
+  border: none;
+}
+
+.footer__accordion-button span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__accordion-header {
+  margin-bottom: 8px;
+}
+
+.footer__accordion-body .footer__list a span {
+  font-weight: bold;
+}
+.footer__accordion-body .footer__list .list__email a span:first-child {
+  text-decoration: none;
+}
+.footer__accordion-body .footer__list .list__email .list__email-link {
+  text-decoration: underline;
+  text-decoration-color: var(--text-color-1);
+  font-weight: normal;
+}
+
 /*------------ _brand ---------------- */
 /* ---------------------------------------------------------
  * Name: 
@@ -2271,6 +2283,103 @@ a:focus, a:hover {
 }
 
 /*------------ _offcanvas ---------------- */
+/* ---------------------------------------------------------
+ * Name: 
+ * Version: 1.0.0
+ * Author: Themesflat
+ * Author URI: http://themesflat.com
+ *
+ * Abstracts variable
+ * Reset css styles
+ * Components
+ * Responsive
+ * RTL
+ ------------------------------------------------------------ */
+/*---------- Abstracts variable ----------- */
+.mobile-menu {
+  width: 100% !important;
+  max-width: min(90%, 320px);
+  border-right: 0 !important;
+  font-family: "Reddit Sans", sans-serif;
+}
+.mobile-menu .mobile-menu__content {
+  height: 100%;
+}
+.mobile-menu .mobile-menu__body {
+  padding: 16px;
+  overscroll-behavior-y: contain;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.mobile-menu .mobile-menu__header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-menu__bottom {
+  padding: 15px;
+}
+.mobile-menu__bottom .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu__footer .mobile-menu__contact p {
+  color: var(--text-color-1);
+}
+.mobile-menu__footer .mobile-menu__contact {
+  margin-bottom: 12px;
+}
+.mobile-menu__footer .mobile-menu__notice {
+  font-weight: bold;
+  color: var(--text-color-1);
+  margin-bottom: 12px;
+}
+.mobile-menu__footer .mobile-menu__info {
+  color: var(--text-color-1);
+}
+
+.mobile-menu__nav .mobile-menu__item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--text-color-1);
+}
+.mobile-menu__nav .mobile-menu__item:last-child {
+  border-bottom: none;
+}
+
+.tf-sidebar {
+  margin-right: 70px;
+}
+.tf-sidebar.style-1 {
+  margin-right: 0px !important;
+  margin-left: 70px;
+}
+
+.wg-course-details {
+  margin-left: -38px;
+}
+
+.wg-service-details {
+  margin-left: -38px;
+}
+
+.wg-blog-details {
+  margin-right: -75px;
+}
+
+.list-blog {
+  margin-right: -75px;
+}
+
+#sidebarOffcanvas {
+  width: 350px;
+}
+
 /*------------ _nice-select ---------------- */
 /* ---------------------------------------------------------
  * Name: 
@@ -2305,12 +2414,12 @@ a:focus, a:hover {
   width: 100%;
 }
 
-.languages i {
+.header__language-current i {
   font-size: 20px;
   line-height: 20px;
   color: var(--text-color-2);
 }
-.languages span {
+.header__language-current span {
   color: var(--text-color-2);
 }
 
@@ -3587,5 +3696,54 @@ a:focus, a:hover {
 }
 
 /*-------------- Sections ----------------- */
+/* ---------------------------------------------------------
+ * Name: 
+ * Version: 1.0.0
+ * Author: Themesflat
+ * Author URI: http://themesflat.com
+ *
+ * Abstracts variable
+ * Reset css styles
+ * Components
+ * Responsive
+ * RTL
+ ------------------------------------------------------------ */
+/*---------- Abstracts variable ----------- */
+.about-us__gallery {
+  display: flex;
+  gap: 4px;
+}
+.about-us__gallery-left {
+  flex: 0 0 66.667%;
+}
+.about-us__gallery-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-us__gallery-right {
+  flex: 0 0 25.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.about-us__gallery-right img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-us__gallery-right img:first-child {
+  flex: 4;
+}
+.about-us__gallery-right img:last-child {
+  flex: 6;
+}
+
+@media (max-width: 767px) {
+  .about-us__gallery-right {
+    flex: 0 0 32.5% !important;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

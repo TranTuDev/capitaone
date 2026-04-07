@@ -19,13 +19,15 @@
     white-space: nowrap;
     width: 100%;
 }
-.languages{
-    i{
+
+.header__language-current {
+    i {
         font-size: 20px;
         line-height: 20px;
         color: var(--text-color-2);
     }
-    span{
+
+    span {
         color: var(--text-color-2);
     }
 }

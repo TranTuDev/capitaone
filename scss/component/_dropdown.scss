@@ -3,8 +3,6 @@
 @import url(../../css/bootstrap-select.min.css);
 
 .dropdown {
-
-
     .btn.dropdown-toggle {
         background: var(--text-color-1) !important;
         border-color: var(--white-2) !important;
@@ -64,44 +62,36 @@
     display: none !important;
 }
 
-
-.languages {
+.header__language-current {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
 
     &::before {
-        content: '\e928';
-        font-family: $fontIcon;
+        content: "\e928";
+        font-family: "icomoon";
         position: absolute;
-        right: 20px;
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
         font-size: 6px;
-        @include transition3();
+        transition: all 0.3s ease-in-out;
         color: var(--white-2);
-    }
-
-    &::after {
-        display: none;
     }
 
     >span {
         font-weight: 400;
         font-size: 16px;
         line-height: 30px;
-        padding-right: 40px;
-
+        padding-right: 15px;
     }
-
-    .list {
-        li {
-            color: var(--main-dark);
-        }
-    }
-
- 
 }
-.nice-select.open .languages::before {
+
+.header__language.open .header__language-current::before {
     transform: translateY(-50%) rotate(180deg);
 }
+
 
 
 
