@@ -81,7 +81,7 @@ if ($(".slider-home-right").length > 0) {
     speed: 1500,
     loop: true,
 
-   
+
 
     navigation: {
       nextEl: ".sw-btn-next",
@@ -181,6 +181,62 @@ $(document).ready(function () {
     }
   });
 
+});
+
+
+
+
+//===step===
+const steps = document.querySelectorAll('.download-step__item');
+const preview = document.getElementById('stepPreviewImage');
+
+steps.forEach(step => {
+    step.addEventListener('click', () => {
+
+        steps.forEach(item => item.classList.remove('active'));
+
+        step.classList.add('active');
+
+        preview.src = step.dataset.image;
+    });
+});
+
+
+
+
+
+
+const membershipSwiper = new Swiper('.membership-slider', {
+  slidesPerView: 3.2,
+  spaceBetween: 24,
+  // loop: true,
+  speed: 800,
+
+  navigation: {
+    nextEl: '.membership-slider .sw-next',
+    prevEl: '.membership-slider .sw-prev',
+  },
+
+  pagination: {
+    el: '.membership-slider .swiper-pagination',
+    clickable: true,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    575: {
+      slidesPerView: 1.5
+    },
+    768: {
+      slidesPerView: 2.5
+    },
+    1199: {
+      slidesPerView: 3.2
+    }
+
+  }
 });
 
 

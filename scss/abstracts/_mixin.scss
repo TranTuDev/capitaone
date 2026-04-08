@@ -128,58 +128,97 @@
     visibility: visible;
 }
 
+// @mixin btnFillScale($bgColor, $textColor: #fff) {
+//     position: relative;
+//     overflow: hidden;
+//     z-index: 1;
+//     transform: translateZ(0);
+//     backface-visibility: hidden;
+
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         inset: 0;
+//         background: $bgColor;
+//         z-index: 1;
+//         transform: scaleX(0);
+//         transform-origin: left;
+//         transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//         will-change: transform;
+//     }
+
+//     &:hover::before {
+//         transform: scaleX(1);
+//     }
+
+//     i {
+//         position: relative;
+//         z-index: 3;
+//         display: inline-block;
+//         transition:
+//             transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+//             color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//     }
+
+//     &:hover i {
+//         transform: translateX(8px);
+//     }
+
+//     &>*:not(i) {
+//         position: relative;
+//         z-index: 4;
+//         transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//     }
+
+//     &:hover>*:not(i) {
+//         color: $textColor !important;
+//     }
+
+//     &:not(:hover) {
+
+//         &::before,
+//         i,
+//         &>*:not(i) {
+//             will-change: auto;
+//         }
+//     }
+// }
+
 @mixin btnFillScale($bgColor, $textColor: #fff) {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    transform: translateZ(0);
-    backface-visibility: hidden;
 
     &::before {
         content: "";
         position: absolute;
         inset: 0;
         background: $bgColor;
-        z-index: 1;
+        z-index: 0;
         transform: scaleX(0);
         transform-origin: left;
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        will-change: transform;
+        transition: transform 0.5s ease;
     }
 
     &:hover::before {
         transform: scaleX(1);
     }
 
-    i {
+    & > * {
         position: relative;
-        z-index: 3;
-        display: inline-block;
-        transition:
-            transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-            color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 2;
+        transition: color 0.4s ease;
+    }
+
+    &:hover > * {
+        color: $textColor !important;
+    }
+
+    i {
+        transition: transform 0.4s ease;
     }
 
     &:hover i {
         transform: translateX(8px);
-    }
-
-    &>*:not(i) {
-        position: relative;
-        z-index: 4;
-        transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    &:hover>*:not(i) {
-        color: $textColor !important;
-    }
-
-    &:not(:hover) {
-
-        &::before,
-        i,
-        &>*:not(i) {
-            will-change: auto;
-        }
     }
 }

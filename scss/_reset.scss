@@ -124,7 +124,7 @@ html {
 
 body {
 	font-family: $font-main;
-	background-color: var(--main-color);
+	background-color: var(--primary-2);
 	font-style: normal;
 }
 
@@ -194,16 +194,23 @@ li {
 }
 
 
-.container-wide {
-	max-width: 1400px;
-	width: 100%;
-	margin: 0 auto;
+// .container-wide {
+// 	max-width: 1400px;
+// 	width: 100%;
+// 	margin: 0 auto;
 
-	@media (max-width: 1399px) {
-		padding: 0 15px;
-	}
+// 	@media (max-width: 1399px) {
+// 		padding: 0 15px;
+// 	}
+// }
+
+.slider-layout-right {
+	width: calc(100vw - (100vw - 1140px) / 2 - 7px);
+	margin-right: unset;
+	max-width: 100%;
+	margin-left: auto;
+	padding: 0 12px;
 }
-
 
 
 svg path {
@@ -353,8 +360,8 @@ h2 {
 }
 
 h3 {
-	font-size: 30px;
-	line-height: 40px;
+	font-size: 24px;
+	line-height: 24px;
 	font-weight: 600;
 }
 
@@ -362,6 +369,11 @@ h4 {
 	font-size: 18px;
 	line-height: 32px;
 	font-weight: 600;
+
+	&.size-2 {
+		font-size: 18px;
+		line-height: 26px;
+	}
 }
 
 h5 {
@@ -441,7 +453,7 @@ h6 {
 
 .text-paragraph-2 {
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 18px;
 }
 
 .text-paragraph-3 {
@@ -575,6 +587,14 @@ a {
 	place-content: center;
 }
 
+.pd-48 {
+	padding: 48px 0px;
+}
+
+.pd-48-bt {
+	padding-bottom: 48px;
+}
+
 .pd-120 {
 	padding: 120px 0px;
 }
@@ -665,6 +685,10 @@ a {
 
 .mg-25-bt {
 	margin-bottom: 25px;
+}
+
+.mg-40-bt {
+	margin-bottom: 40px;
 }
 
 // margin
@@ -842,7 +866,7 @@ a {
 	width: 38px;
 	height: 38px;
 	background: var(--white);
-	color: var(--main-color);
+	color: var(--text-color-1);
 	font-size: 20px;
 	text-align: center;
 	line-height: 50px;
@@ -862,10 +886,10 @@ a {
 		width: calc(100% + 2px);
 		height: calc(100% + 2px);
 		border-radius: 3px;
-		border: 1px solid var(--main-color);
+		border: 1px solid var(--text-color-1);
 		--progress-angle: 0deg;
-		mask-image: conic-gradient(#FEE100 var(--progress-angle, 0deg), transparent 0);
-		-webkit-mask-image: conic-gradient(#FEE100 var(--progress-angle, 0deg), transparent 0);
+		mask-image: conic-gradient(#382C25 var(--progress-angle, 0deg), transparent 0);
+		-webkit-mask-image: conic-gradient(#382C25 var(--progress-angle, 0deg), transparent 0);
 		content: "";
 		z-index: 1;
 		@include transition3;
@@ -1135,6 +1159,7 @@ a {
 .gap-10 {
 	gap: 10px;
 }
+
 .gap-20 {
 	gap: 20px;
 }
