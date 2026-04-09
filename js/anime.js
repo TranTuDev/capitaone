@@ -179,31 +179,40 @@ $(document).ready(function () {
 
 // ===== SECTION TITLE ANIMATION =====
 $(document).ready(function () {
-  $('.section-title').each(function () {
+  $('.heading__title, .section-title').each(function () {
     const $title = $(this);
-    const text = $title.text().trim();
 
-    if ($title.find('.word').length > 0) {
-      return;
-    }
+    if ($title.find('.word').length > 0) return;
 
     let newHTML = '';
-    const words = text.split(/\s+/);
 
-    words.forEach((word, wordIndex) => {
-      if (!word) return;
+    $title.contents().each(function () {
 
-      newHTML += '<span class="word">';
+      // nếu là text node
+      if (this.nodeType === 3) {
+        const text = this.textContent.trim();
+        const words = text.split(/\s+/);
 
-      for (let i = 0; i < word.length; i++) {
-        const char = word[i];
-        newHTML += `<span class="char">${char}</span>`;
+        words.forEach((word, wordIndex) => {
+          if (!word) return;
+
+          newHTML += '<span class="word">';
+
+          [...word].forEach(char => {
+            newHTML += `<span class="char">${char}</span>`;
+          });
+
+          newHTML += '</span>';
+
+          if (wordIndex < words.length - 1) {
+            newHTML += ' ';
+          }
+        });
       }
 
-      newHTML += '</span>';
-
-      if (wordIndex < words.length - 1) {
-        newHTML += ' ';
+      // nếu là br
+      if (this.nodeName === 'BR') {
+        newHTML += '<br>';
       }
     });
 
@@ -212,9 +221,9 @@ $(document).ready(function () {
     const chars = $title.find('.char');
 
     chars.css({
-      'transform': 'translateY(1.2em)',
-      'opacity': '0',
-      'display': 'inline-block'
+      transform: 'translateY(1.2em)',
+      opacity: 0,
+      display: 'inline-block'
     });
 
     let animated = false;
@@ -247,112 +256,113 @@ $(document).ready(function () {
   });
 });
 
+
 // ===== IMAGE PUZZLE ANIMATION =====
 $(document).ready(function () {
   $('.animation-img').each(function () {
     const $img = $(this);
-    let animated = false;
-
     const rows = 2;
     const cols = 2;
+    let animated = false;
 
     const $parent = $img.parent();
 
-
     $parent.css({
-      'position': 'relative',
-      'overflow': 'hidden',
-      'isolation': 'isolate'
+      position: 'relative',
+      overflow: 'hidden',
+      isolation: 'isolate'
     });
 
+    function initAnimation() {
+      const imgWidth = $img.outerWidth();
+      const imgHeight = $img.outerHeight();
 
-    const imgWidth = $img[0].naturalWidth || $img.width();
-    const imgHeight = $img[0].naturalHeight || $img.height();
+      if (!imgWidth || !imgHeight) return;
 
-    if (imgWidth > 0 && imgHeight > 0) {
-      $img.css('opacity', 0);
-    } else {
+      const pieces = [];
 
-      $img.on('load', function () {
-        $img.css('opacity', 0);
+      $img.css({
+        opacity: 0,
+        display: 'block'
       });
-      return;
-    }
 
-    const pieces = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const $piece = $('<div></div>');
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const $piece = $('<div></div>');
+          $piece.css({
+            position: 'absolute',
+            width: imgWidth / cols + 'px',
+            height: imgHeight / rows + 'px',
+            left: (c * imgWidth / cols) + 'px',
+            top: (r * imgHeight / rows) + 'px',
+            backgroundImage: `url(${$img.attr('src')})`,
+            backgroundSize: `${imgWidth}px ${imgHeight}px`,
+            backgroundPosition: `-${c * imgWidth / cols}px -${r * imgHeight / rows}px`,
+            opacity: 0,
+            willChange: 'transform, opacity'
+          });
 
-        $piece.css({
-          'position': 'absolute',
-          'width': imgWidth / cols + 'px',
-          'height': imgHeight / rows + 'px',
-          'left': (c * imgWidth / cols) + 'px',
-          'top': (r * imgHeight / rows) + 'px',
-          'background-image': `url(${$img.attr('src')})`,
-          'background-size': `${imgWidth}px ${imgHeight}px`,
-          'background-position': `-${c * imgWidth / cols}px -${r * imgHeight / rows}px`,
-          'will-change': 'transform, opacity',
-          'backface-visibility': 'hidden',
-          'transform': 'translateZ(0)'
-        });
-
-        $parent.append($piece);
-        pieces.push($piece[0]);
+          $parent.append($piece);
+          pieces.push($piece[0]);
+        }
       }
-    }
 
-    function checkScroll() {
-      if (animated) return;
+      function checkScroll() {
+        if (animated) return;
 
-      const elementTop = $img.offset().top;
-      const windowBottom = $(window).scrollTop() + $(window).height();
+        const elementTop = $img.offset().top;
+        const windowBottom = $(window).scrollTop() + $(window).height();
 
-      if (windowBottom > elementTop + 100) {
+        if (windowBottom > elementTop + 100) {
+          anime.set(pieces, {
+            translateY: () => anime.random(-60, 60),
+            translateX: () => anime.random(-60, 60),
+            scale: 0.95,
+            opacity: 0
+          });
 
-        anime.set(pieces, {
-          translateY: () => anime.random(-150, 150),
-          translateX: () => anime.random(-150, 150),
-          opacity: 0
-        });
+          anime({
+            targets: pieces,
+            translateX: 0,
+            translateY: 0,
+            scale: 1,
+            opacity: 1,
+            delay: anime.stagger(80),
+            duration: 900,
+            easing: 'easeOutExpo',
+            complete: function () {
+              $img.css('opacity', 1);
 
-        anime({
-          targets: pieces,
-          translateX: 0,
-          translateY: 0,
-          opacity: 1,
-          delay: anime.stagger(25, { from: 'center' }),
-          duration: 800,
-          easing: 'easeOutCubic',
-          complete: function () {
-            $img.css('opacity', 1);
+              anime({
+                targets: pieces,
+                opacity: 0,
+                duration: 250,
+                easing: 'easeOutQuad',
+                complete: function () {
+                  $(pieces).remove();
+                }
+              });
+            }
+          });
 
-            anime({
-              targets: pieces,
-              opacity: 0,
-              duration: 200,
-              easing: 'easeOutQuad',
-              complete: function () {
-                $(pieces).remove();
-
-                $img.css('will-change', 'auto');
-              }
-            });
-          }
-        });
-
-        animated = true;
-
-        $(window).off('scroll', checkScroll);
+          animated = true;
+          $(window).off('scroll', checkScroll);
+        }
       }
+
+      $(window).on('scroll', checkScroll);
+      checkScroll();
     }
 
-    $(window).on('scroll', checkScroll);
-    checkScroll();
+    if ($img[0].complete) {
+      initAnimation();
+    } else {
+      $img.on('load', initAnimation);
+    }
   });
 });
+
 
 // ===== SCROLL ANIMATIONS =====
 $(document).ready(function () {
@@ -435,4 +445,39 @@ $(document).ready(function () {
   // Delay nhẹ để DOM render xong rồi mới check
   setTimeout(checkScroll, 100);
 });
+
+
+
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 120) {
+    header.classList.add("is-sticky");
+  } else {
+    header.classList.remove("is-sticky");
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".fade-up");
+
+  if (elements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    elements.forEach(el => observer.observe(el));
+  }
+});
+
 

@@ -77,24 +77,33 @@
     filter: blur(8px);
 }
 
-.heading-section .section-title .word,
+.heading__title .word,
 .section-title .word {
-    display: inline-block !important;
-    white-space: nowrap !important;
-    vertical-align: top !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    word-spacing: normal !important;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: top;
 }
 
-.heading-section .section-title .char,
+.heading__title .char,
 .section-title .char {
-    display: inline-block !important;
-    line-height: 1 !important;
-    vertical-align: baseline !important;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: baseline;
     will-change: transform, opacity;
-    margin: 0 !important;
-    padding: 0 !important;
-    letter-spacing: normal !important;
+}
+
+
+
+
+
+.fade-up {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

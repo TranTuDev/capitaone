@@ -74,14 +74,12 @@ $(document).ready(function () {
 
 
 // ================= HOME RIGHT SLIDER =================
-if ($(".slider-home-right").length > 0) {
-  var swiperTestimonialLeft = new Swiper(".slider-home-right", {
+if ($(".slider-home").length > 0) {
+  new Swiper(".slider-home", {
     slidesPerView: 1,
     spaceBetween: 0,
     speed: 1500,
     loop: true,
-
-
 
     navigation: {
       nextEl: ".sw-btn-next",
@@ -89,13 +87,11 @@ if ($(".slider-home-right").length > 0) {
     },
 
     pagination: {
-      el: ".sw-pagination-testimonial",
-      clickable: true,
+      el: ".sw-pagination-slider",
+      type: "fraction",
     },
   });
 }
-
-
 
 // ================= PORTFOLIO SLIDER =================
 if ($(".portfolio-slider").length > 0) {
@@ -191,15 +187,26 @@ const steps = document.querySelectorAll('.download-step__item');
 const preview = document.getElementById('stepPreviewImage');
 
 steps.forEach(step => {
-    step.addEventListener('click', () => {
+  step.addEventListener('click', () => {
 
-        steps.forEach(item => item.classList.remove('active'));
+    const currentActive = document.querySelector('.download-step__item.active');
 
-        step.classList.add('active');
+    if (currentActive !== step) {
+      currentActive?.classList.remove('active');
+      step.classList.add('active');
 
-        preview.src = step.dataset.image;
-    });
+      const image = step.dataset.image;
+
+      preview.style.opacity = 0;
+
+      setTimeout(() => {
+        preview.src = image;
+        preview.style.opacity = 1;
+      }, 200);
+    }
+  });
 });
+
 
 
 

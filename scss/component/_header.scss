@@ -2,11 +2,33 @@
 
 
 .header {
-
-    position: sticky;
+    position: fixed;
+    top: -120px;
+    left: 0;
     top: 0;
+    width: 100%;
     z-index: 1030;
+    transition: all 0.45s ease;
+    background: transparent;
+    &.is-sticky {
+        box-shadow: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+        background: 0 8px 30px rgba(0, 0, 0, 0.08);
+        animation: slideDown 0.4s ease;
+    }
 }
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 .header__inner {
     display: flex;
