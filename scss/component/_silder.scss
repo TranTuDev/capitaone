@@ -1,7 +1,9 @@
 @use "../abstracts/index" as *;
 
 
-
+.membership-slider {
+    padding:  0px 20px;
+}
 
 .membership {
     &__card {
@@ -207,11 +209,11 @@
         gap: 10px;
 
         h2 {
-            color: var(--text-color-2)
+            color: var(--text-color-3)
         }
 
         p {
-            color: var(--text-color-2)
+            color: var(--text-color-3)
         }
     }
 }
@@ -219,43 +221,57 @@
 // ============================================================
 // ANIMATION — dùng đúng pattern fade-item của mentor
 // ============================================================
-// .slider-effect-fade {
-//     .swiper-slide {
-//         .fade-item {
-//             transform: translateY(30px);
-//             opacity: 0;
-//             visibility: hidden;
-//             transition:
-//                 transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-//                 opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-//                 visibility 0.6s;
+.slider-home {
+    .swiper-slide {
 
-//             &.fade-item-1 {
-//                 transition-delay: 0.1s;
-//             }
+        .fade-item {
+            transform: translateY(60px);
+            opacity: 0;
+            transition: all 0.55s cubic-bezier(0.25, 1, 0.3, 1);
+            will-change: transform, opacity;
 
-//             &.fade-item-2 {
-//                 transition-delay: 0.25s;
-//             }
+            &.fade-item-1 {
+                transition-delay: 0.15s;
+            }
 
-//             &.fade-item-3 {
-//                 transition-delay: 0.4s;
-//             }
+            &.fade-item-2 {
+                transition-delay: 0.25s;
+            }
 
-//             &.fade-item-4 {
-//                 transition-delay: 0.55s;
-//             }
-//         }
+            &.fade-item-3 {
+                transition-delay: 0.35s;
+            }
 
-//         &.swiper-slide-active {
-//             .fade-item {
-//                 transform: translateY(0);
-//                 opacity: 1;
-//                 visibility: visible;
-//             }
-//         }
-//     }
-// }
+            &.fade-item-4 {
+                transition-delay: 0.45s;
+            }
+
+            &.is-animated {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+.swiper-slide:not(.swiper-slide-active) {
+    .fade-item {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+}
+
+.swiper-slide {
+
+    &.swiper-slide-prev,
+    &.swiper-slide-next {
+        .fade-item {
+            transition-delay: 0s;
+        }
+    }
+}
+
 
 // ============================================================
 // PAGINATION

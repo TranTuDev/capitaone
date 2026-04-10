@@ -81,19 +81,53 @@
 .section-title .word {
     display: inline-block;
     white-space: nowrap;
-    vertical-align: top;
 }
 
 .heading__title .char,
 .section-title .char {
     display: inline-block;
-    line-height: 1;
-    vertical-align: baseline;
+    will-change: transform, opacity;
+}
+
+.word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.char {
+    display: inline-block;
     will-change: transform, opacity;
 }
 
 
 
+.mobile-menu__link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+/* char để animate */
+.char {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* underline */
+.mobile-menu__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+.mobile-menu__link:hover::after {
+    width: 100%;
+}
 
 
 .fade-up {

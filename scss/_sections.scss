@@ -2,7 +2,7 @@
 
 //==about-us==//
 .about-us {
-
+    scroll-margin-top: 100px;
     position: relative;
     overflow: hidden;
 
@@ -100,6 +100,7 @@
 //===membership===//
 
 .membership {
+    scroll-margin-top: 100px;
     position: relative;
     overflow: hidden;
 
@@ -146,6 +147,8 @@
 //==step==//
 
 .store {
+    scroll-margin-top: 100px;
+
     .heading {
         margin-bottom: 32px;
     }
@@ -230,6 +233,8 @@
 
 //==fag==//
 .faq-section {
+    scroll-margin-top: 100px;
+
     .heading {
         margin-bottom: 32px;
     }
@@ -357,6 +362,7 @@
 //===new===/
 
 .new {
+    scroll-margin-top: 100px;
     position: relative;
     overflow: hidden;
     background-color: var(--text-color-1);
@@ -423,6 +429,7 @@
     }
 }
 
+
 .new__right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -437,8 +444,6 @@
     }
 
 }
-
-
 
 
 

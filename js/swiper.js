@@ -73,12 +73,12 @@ $(document).ready(function () {
 });
 
 
-// ================= HOME RIGHT SLIDER =================
+// ================= HOME-SLIDER =================
 if ($(".slider-home").length > 0) {
-  new Swiper(".slider-home", {
+  const sliderHome = new Swiper(".slider-home", {
     slidesPerView: 1,
     spaceBetween: 0,
-    speed: 1500,
+    speed: 1000,
     loop: true,
 
     navigation: {
@@ -90,8 +90,43 @@ if ($(".slider-home").length > 0) {
       el: ".sw-pagination-slider",
       type: "fraction",
     },
+
+    on: {
+      init(swiper) {
+        requestAnimationFrame(() => {
+          setActive(swiper);
+        });
+      },
+
+      slideChangeTransitionStart(swiper) {
+        clearAll(swiper);
+      },
+
+      slideChangeTransitionEnd(swiper) {
+        setActive(swiper);
+      },
+    },
   });
+
+  function clearAll(swiper) {
+    swiper.slides.forEach((slide) => {
+      slide.querySelectorAll(".fade-item").forEach((el) => {
+        el.classList.remove("is-animated");
+      });
+    });
+  }
+
+  function setActive(swiper) {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    if (!activeSlide) return;
+
+    activeSlide.querySelectorAll(".fade-item").forEach((el) => {
+      el.classList.add("is-animated");
+    });
+  }
 }
+
+
 
 // ================= PORTFOLIO SLIDER =================
 if ($(".portfolio-slider").length > 0) {
